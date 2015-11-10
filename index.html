@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- module connection to html ng-app="info" -->
+<html ng-app="info">
+<head>
+	<title>Training</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<style type="text/css">
+		li{
+			border:1px solid green;
+			padding: .2em;
+			margin: .3em;
+			width: 40%;
+		}
+		table{
+			float: right;
+		}
+	</style>
+</head>
+
+<body ng-controller="tel">
+	
+	<input type="text" ng-model="query">
+
+<!-- first one -->
+	<ol>
+		<!-- here we want to see filter witct name query and status true or we can use $ say to our filter seying to our filter take all elemets witch argument query and status true-->
+		<!-- <li ng-repeat="phone in phones | filter:{$:query, status:true}"> -->
+		
+		<li ng-repeat="phone in phones | filter:{name:query, status:true}"> 
+			<span>Name: {{phone.name}}</span>
+			<p>{{phone.snippet}}</p>
+		</li>		
+	</ol>	
+	<p>Totals phones: {{phones.length}} in our data</p>
+	<hr>
+
+<!-- adding filters to the time  -->
+	{{today | date:'dd/MM/yyyy'}}
+<!-- 1: adding text| 2:set rule show only 14 characters| 3:characters supposed to be lowercase -->
+	{{'Hello my name is Somebody' | limitTo:14 | lowercase}} <br>
+<!-- 1: adding text| 2:set rule show only 25 characters| 3:characters supposed to be uppercase -->
+	{{'Hello my name is Somebody' | limitTo:25 | uppercase}}
+
+	<script src="javascript.js"></script>
+</body>
+</html>
